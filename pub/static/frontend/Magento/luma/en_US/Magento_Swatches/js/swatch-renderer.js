@@ -1,0 +1,1 @@
+/home/mn/magento-sooryen/apps/magento/htdocs/vendor/magento/module-swatches/view/frontend/web/js/swatch-renderer.js

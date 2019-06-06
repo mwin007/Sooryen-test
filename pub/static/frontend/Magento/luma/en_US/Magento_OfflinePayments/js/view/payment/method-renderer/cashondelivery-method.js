@@ -1,0 +1,1 @@
+/home/mn/magento-sooryen/apps/magento/htdocs/vendor/magento/module-offline-payments/view/frontend/web/js/view/payment/method-renderer/cashondelivery-method.js

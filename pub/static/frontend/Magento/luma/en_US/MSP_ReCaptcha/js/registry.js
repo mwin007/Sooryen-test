@@ -1,0 +1,1 @@
+/home/mn/magento-sooryen/apps/magento/htdocs/vendor/msp/recaptcha/view/frontend/web/js/registry.js

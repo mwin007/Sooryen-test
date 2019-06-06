@@ -1,0 +1,1 @@
+/home/mn/magento-sooryen/apps/magento/htdocs/vendor/magento/theme-frontend-blank/Magento_Theme/web/js/responsive.js

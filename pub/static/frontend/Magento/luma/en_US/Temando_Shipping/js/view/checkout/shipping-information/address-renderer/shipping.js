@@ -1,0 +1,1 @@
+/home/mn/magento-sooryen/apps/magento/htdocs/vendor/temando/module-shipping-m2/view/frontend/web/js/view/checkout/shipping-information/address-renderer/shipping.js

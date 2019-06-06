@@ -1,0 +1,1 @@
+/home/mn/magento-sooryen/apps/magento/htdocs/vendor/amzn/amazon-pay-module/view/frontend/web/js/model/amazonPaymentConfig.js

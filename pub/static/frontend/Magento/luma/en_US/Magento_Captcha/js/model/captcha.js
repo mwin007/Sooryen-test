@@ -1,0 +1,1 @@
+/home/mn/magento-sooryen/apps/magento/htdocs/vendor/magento/module-captcha/view/frontend/web/js/model/captcha.js

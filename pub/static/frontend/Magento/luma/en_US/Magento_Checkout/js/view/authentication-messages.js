@@ -1,0 +1,1 @@
+/home/mn/magento-sooryen/apps/magento/htdocs/vendor/magento/module-checkout/view/frontend/web/js/view/authentication-messages.js
