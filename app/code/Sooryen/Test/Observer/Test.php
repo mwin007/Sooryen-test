@@ -18,60 +18,40 @@ class Test implements \Magento\Framework\Event\ObserverInterface
 
   public function execute(\Magento\Framework\Event\Observer $observer)
   {
-
-    //order id
+    //Order id
     $order = $observer->getEvent()->getOrder();
     $order_id = $order->getIncrementId();
-    $this->_logger->info($order_id);
 
-    $items =$order->getAllVisibleItems();
-    //product ids
-    $productIds = array();
-    foreach($items as $item) {
-      //$productIds[]= $item->getProductId();
-      $this->_logger->info($item->getProductId());
-    }
+    //Get items
+    $orderAllItems = $order->getAllVisibleItems();
+    $orderItem = array();
 
-    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-    $product = $objectManager->create('Magento\Catalog\Model\Product')->load($item->getProductId());
-    $productId = $item->getProductId();
-    $this->_logger->info($product->getName()); //Get Product Name
-    $this->_logger->info($product->getSku()); //Get Product Name
-
-    //custoemr id
+    //Get customer id and names
     $customerId = $order->getCustomerId();
-    $this->_logger->info($customerId);
-
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
     $customerRepository = $objectManager->create(\Magento\Customer\Api\CustomerRepositoryInterface::class);
     $customer = $customerRepository->getById($customerId);
     if($customer->getId()){
-        $this->_logger->info($customer->getFirstname());
-        $this->_logger->info($customer->getLastname());
         $customerFirst = $customer->getFirstname();
         $customerLast = $customer->getLastname();
     }
-
-    $test = $this->_testFactory->create();
-    $test->setOrderId($order_id);
-    $test->setCustomerId($customerId);
-    $test->save();
-
-    /*
-    foreach($items as $item) {
-      $productId = $item->getProductId();
-      $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
-      $productName = $product->getName();
-      $test->setProductName($productName);
+    
+    //Post to DB
+    foreach ($orderAllItems as $item) {
+      $orderItem=array('quantity'=>$item->getQtyOrdered(),'sku'=>$item->getSku(),'name'=>$item->getName(),'price'=>$item->getPrice());
+      $test = $this->_testFactory->create();
+      $test->setProductName($orderItem['name']);
+      $test->setSku($orderItem['sku']);
+      //$test->setSku($orderItem['quantity']);
       $test->setOrderId($order_id);
       $test->setCustomerId($customerId);
       $test->setFirstName($customerFirst);
       $test->setLastName($customerLast);
-
+      $test->save();
+      $this->_logger->info($orderItem['name']);
+      $this->_logger->info($orderItem['quantity']);
     }
-    */
-
-
   }
-}
 
+}
 

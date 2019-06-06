@@ -68,6 +68,13 @@ class InstallSchema implements InstallSchemaInterface
             'SKU'
           )
           ->addColumn(
+            'qty',
+            \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+            1,
+            [],
+            'Quantity'
+          )
+          ->addColumn(
             'product_name',
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
             '255',
