@@ -42,14 +42,12 @@ class Test implements \Magento\Framework\Event\ObserverInterface
       $test = $this->_testFactory->create();
       $test->setProductName($orderItem['name']);
       $test->setSku($orderItem['sku']);
-      //$test->setSku($orderItem['quantity']);
+      $test->setQty($orderItem['quantity']);
       $test->setOrderId($order_id);
       $test->setCustomerId($customerId);
       $test->setFirstName($customerFirst);
       $test->setLastName($customerLast);
       $test->save();
-      $this->_logger->info($orderItem['name']);
-      $this->_logger->info($orderItem['quantity']);
     }
   }
 
